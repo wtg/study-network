@@ -4,10 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def signed_in?
-    if session[:cas_user].nil?
-      redirect_to root_path
-    end
+    not session[:cas_user].nil?
   end
-
 
 end

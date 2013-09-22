@@ -1,4 +1,20 @@
-/*
-  Place all the styles related to the matching controller here.
-  They will automatically be included in application.css.
-*/
+p {
+  font-size: 17px;
+}
+
+.jumbotron {
+  padding: 15px;
+  background: #F5F5F5;
+  border-radius: 10px;
+}
+
+
+.panel-default {
+  border: 1px solid #E0E0E0;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.panel-heading {
+  
+}

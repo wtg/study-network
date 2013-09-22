@@ -1,3 +1,25 @@
-<h1> Users Show </h1>
+<div class="page-header">  
+  <h3> Welcome <%= @user.username %> </h3>
+</div>
 
-<%= @user.username %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Your Classes</h3>
+  </div>
+  <div class="panel-body">
+    <p> Class 1 </p>
+    <p> Class 2 </p>
+    <p> Class 3 </p>
+    <p> Class 4 </p>
+  </div>
+</div>
+<br />
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Account Details</h3>
+  </div>
+  <div class="panel-body">
+    <p> Last Updated: <%= @user.updated_at.to_date %> </p>
+    <p> Created: <%= @user.created_at.to_date %> </p>
+  </div>
+</div>
