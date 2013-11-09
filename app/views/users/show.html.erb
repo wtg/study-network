@@ -1,7 +1,9 @@
 <div class="page-header">  
-  <h3> Welcome <%= @user.username %> </h3>
+  <h3> Welcome <%= if !@user.real_name then @user.username else @user.real_name end %> </h3>
 </div>
 
+<%= link_to "Edit Account", edit_user_path(@user) %>
+<br><br>
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">Your Classes</h3>

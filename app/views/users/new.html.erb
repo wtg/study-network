@@ -1,0 +1,15 @@
+<h4> New User </h4>
+
+<%= form_for :user, url: user_path do |f| %>
+  <p>
+    <%= f.label :username, "RCS ID" %>
+    <%= f.text_field :username %>
+  </p>
+  <p>
+    <%= f.label :real_name %>
+    <%= f.text_field :real_name %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

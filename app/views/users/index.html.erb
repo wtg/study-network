@@ -1,1 +1,19 @@
-<h1> Users Index </h1>
+<h4> Users Index </h4>
+
+<%= link_to "Add New User", new_user_path %>
+
+<table class='table'>
+  <tr>
+    <th>RCS ID</th>
+    <th>Real Name</th>
+    <th></th>
+  </tr>
+
+  <% @users.each do |user| %>
+  <tr> 
+    <td><%= link_to user.username, user %></td>
+    <td><%= user.real_name %></td>
+    <td><%= link_to "Edit", edit_user_path(user) %></td>
+  </tr>
+  <% end %>
+</table>
