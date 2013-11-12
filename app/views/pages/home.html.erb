@@ -1,8 +1,19 @@
-
 <div class="jumbotron">
   <div class="container">
-    <h3> It's easy to connect with your classmates! </h3>
-    <p> Just use your RCS ID! </p>
-    <%= link_to "Begin", sign_in_path, :class => "btn btn-primary btn-lg" %>
+    <div class="logo">
+      <%= image_tag "rpi_logo.svg" %>
+    </div>
+    <% if !signed_in? %>
+      <div class="intro">
+        <h3> It's easy to connect with your classmates! </h3>
+        <p> Just use your RCS ID! </p>
+        <%= link_to "Begin", sign_in_path, :class => "btn btn-primary btn-lg" %>
+      </div>
+    <% else %>
+      <div class="intro">
+        <h3> You're signed in! </h3>
+        <p> Start networking </p>
+      </div>
+    <% end %>
   </div>
 </div>

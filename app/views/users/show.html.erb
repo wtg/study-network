@@ -1,18 +1,14 @@
-<div class="page-header">  
-  <h3> Welcome <%= if !@user.real_name then @user.username else @user.real_name end %> </h3>
-</div>
-
-<%= link_to "Edit Account", edit_user_path(@user) %>
-<br><br>
+<h3> Welcome <%= if !@user.real_name then @user.username else @user.real_name end %> </h3>
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">Your Classes</h3>
   </div>
   <div class="panel-body">
-    <p> Class 1 </p>
-    <p> Class 2 </p>
-    <p> Class 3 </p>
-    <p> Class 4 </p>
+    <% if !@classes %>
+      <%= link_to "+ Add Classes", new_user_registration_path(user_id: params[:id]), :class => "btn btn-primary btn-lg" %>
+    <% else %> 
+      <p> List of Classes! </p>
+    <% end %>
   </div>
 </div>
 <br />
@@ -21,6 +17,11 @@
     <h3 class="panel-title">Account Details</h3>
   </div>
   <div class="panel-body">
+    <p> RCS ID: <%= @user.username %> </p>
+    <p> Name: <%= @user.real_name %> </p>
+    <p> Year: <%= @user.year %> </p>
+    <%= link_to "Edit Details", edit_user_path(@user), :class => "btn btn-primary btn-lg" %>
+    <hr />
     <p> Last Updated: <%= @user.updated_at.to_date %> </p>
     <p> Created: <%= @user.created_at.to_date %> </p>
   </div>

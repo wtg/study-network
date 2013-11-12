@@ -6,6 +6,7 @@
   <tr>
     <th>RCS ID</th>
     <th>Real Name</th>
+    <th>Year</th>
     <th></th>
   </tr>
 
@@ -13,6 +14,7 @@
   <tr> 
     <td><%= link_to user.username, user %></td>
     <td><%= user.real_name %></td>
+    <td><%= user.year %></td>
     <td><%= link_to "Edit", edit_user_path(user) %></td>
   </tr>
   <% end %>

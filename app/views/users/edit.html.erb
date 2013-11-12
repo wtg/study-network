@@ -1,5 +1,5 @@
-<h4> Editing <%= link_to @user.username, @user %> </h4>
-<%= link_to 'Back', users_path %>
+<h3> Editing <%= link_to @user.username, @user %> </h3>
+<%= link_to ' < Back', users_path %>
 
 <%= form_for :user, url: user_path(@user), method: :patch do |f| %>
   
@@ -12,8 +12,12 @@
     <%= f.label :real_name %>
     <%= f.text_field :real_name, value: @user.real_name %>
   </p>
+  <p> 
+    <%= f.label :year %>
+    <%= f.select :year, User::YEARS, value: @user.year %>
+  </p>
   <p>
-    <%= f.submit %>
+    <%= f.submit :class => "btn btn-primary btn-lg" %>
   </p>
 <% end %>
 

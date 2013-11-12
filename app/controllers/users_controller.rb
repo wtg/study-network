@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   def show
     if signed_in?
       @user = User.find_by_username(session[:cas_user])
+      @classes = Registration.find_by_user_id(params[:id])
     else
       redirect_to '/'
     end
@@ -36,7 +37,7 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:username, :real_name)
+      params.require(:user).permit(:username, :real_name, :year)
     end
 
 end
