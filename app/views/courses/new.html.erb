@@ -1,7 +1,11 @@
 <p> RPI class list updated: </p>
+<hr>
 <% @classes.each do |dept| %>
-  <% dept.each do |d| %>
-    <%= d %>
+  <% dept.each_index do |i| %>
+    <%= dept[i] %>
+    <% if i%2 != 0 %>
+      <br>
+    <% end %>
   <% end %>
   <hr>
 <% end %>
