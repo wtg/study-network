@@ -1,6 +1,6 @@
 <h4> New User </h4>
 
-<%= form_for :user, url: user_path do |f| %>
+<%= form_for :user, url: @user do |f| %>
   <p>
     <%= f.label :username, "RCS ID" %>
     <%= f.text_field :username %>
