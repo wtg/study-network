@@ -1,0 +1,22 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= @course.abrev_name + " - " + @course.title %></h3>
+    <h5><%= "Level: " + @course.level %></h5>
+    <h5><%= "Section: " + @course.section %></h5>
+    <h5><%= "CRN: " + @course.crn %></h5>
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Students</h3>
+  </div>
+  <div class="panel-body">
+    <% if @users %>
+      <% @users.each do |user| %>
+        <p><%= @user.real_name %></p>
+      <% end %>
+    <% else %>
+      <p>No Connections Found :( </p>
+    <% end %>
+  </div>
+</div>

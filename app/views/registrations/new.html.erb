@@ -1,6 +1,7 @@
-<%= form_for :registration, :url => @user do |f| %>
-  
-  
-
+<%= form_for :new_course_registrations, :url => user_registrations_path do |f| %>
+  <%= f.submit :class => 'btn btn-primary'%><br><br>
+  <% @courses.each do |course| %>
+    <div class="checkbox"><%= f.check_box :registrations, {multiple: true}, course.crn, nil %> <%= course.title %></div>
+  <% end %>
 <% end %>
 

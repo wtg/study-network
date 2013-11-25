@@ -7,7 +7,9 @@
     <% if !@classes %>
       <%= link_to "+ Add Classes", new_user_registration_path(user_id: params[:id]), :class => "btn btn-primary btn-lg" %>
     <% else %> 
-      <p> List of Classes! </p>
+      <% @classes.each do |aclass| %>
+        <p><%= aclass.course %></p>
+      <% end %>
     <% end %>
   </div>
 </div>

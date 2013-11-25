@@ -4,6 +4,17 @@ class CoursesController < ApplicationController
     @courses = Course.all
   end
 
+  def show
+    @course = Course.find(params[:id])
+    links = Registration.find_by_course_id(params[:id])
+    @users = Array.new
+    if links
+      links.each do |link|
+        @users << User.find(link.user_id)
+      end
+    end
+  end
+
   def new
     require 'nokogiri'
     require 'open-uri'
@@ -38,13 +49,19 @@ class CoursesController < ApplicationController
 
     @classes.each do |dept|
       dept.each do |cl|
-        @course = Course.new(crn_course_sec: cl[0], title: cl[1])
-        @course.save
+        if cl[0].to_s != "" and cl[1].to_s != ""
+          crn_course_sec = cl[0].to_s.split()
+          course_crn = crn_course_sec[0]
+          course_sec = crn_course_sec[1].split("-")
+          course_abrev = course_sec[0]
+          course_level = course_sec[1]
+          course_sec = course_sec[2]
+          Course.create(title: cl[1], crn: course_crn, 
+            abrev_name: course_abrev, level: course_level, 
+            section: course_sec)
+        end
       end
     end
-
-    redirect_to 'courses_path'
-
   end
 
 end
