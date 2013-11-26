@@ -6,11 +6,11 @@ class CoursesController < ApplicationController
 
   def show
     @course = Course.find(params[:id])
-    links = Registration.find_by_course_id(params[:id])
+    registered_students = Registration.where(course_id: params[:id])
     @users = Array.new
-    if links
-      links.each do |link|
-        @users << User.find(link.user_id)
+    if registered_students.length > 0 
+      registered_students.each do |rs|
+        @users << User.find(rs.user_id)
       end
     end
   end

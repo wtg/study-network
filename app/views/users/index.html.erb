@@ -1,6 +1,8 @@
 <h4> Users Index </h4>
 
-<%= link_to "Add New User", new_user_path %>
+<% if is_admin? %>
+  <%= link_to "Add New User", new_user_path %>
+<% end %>
 
 <table class='table'>
   <tr>
@@ -15,7 +17,7 @@
     <td><%= link_to user.username, user %></td>
     <td><%= user.real_name %></td>
     <td><%= user.year %></td>
-    <td><%= link_to "Edit", edit_user_path(user) %></td>
+    <td><% if is_admin? %><%= link_to "Edit", edit_user_path(user) %><% end %></td>
   </tr>
   <% end %>
 </table>

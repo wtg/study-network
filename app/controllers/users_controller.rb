@@ -14,12 +14,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    if signed_in?
-      @user = User.find_by_username(session[:cas_user])
-      @classes = Registration.where(user_id: params[:id])
-    else
-      redirect_to '/'
-    end
+    @user = User.find(params[:id])
+    @classes = Registration.where(user_id: @user.id)
   end
 
   def edit

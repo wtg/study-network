@@ -11,10 +11,10 @@ class RegistrationsController < ApplicationController
 
   def create
     @user = User.find(params[:user_id])
-    registered_crns = params[:new_course_registrations][:registrations]
-    registered_crns.each do |acrn| 
-      Registration.create(course_id: Course.find_by_crn(acrn), 
-                          user_id: params[:user_id])
+    registrations = params[:new_course_registrations][:registrations]
+    registrations.each do |acrn| 
+      Registration.create(course_id: Course.find_by_crn(acrn).id, 
+                          user_id: params[:user_id].to_i)
     end
     redirect_to @user
   end
