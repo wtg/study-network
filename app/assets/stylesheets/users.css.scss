@@ -7,3 +7,11 @@
     padding: 20px;
   }
 }
+
+.discontinue-btn {
+  color: red;
+  &:hover {
+    text-decoration: none;
+    color: orange;
+  }
+}

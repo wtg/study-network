@@ -2,7 +2,7 @@ StudyNetwork::Application.routes.draw do
   root 'pages#home'
 
   resources :users do
-    resources :registrations, only: [:new, :create]
+    resources :registrations, only: [:new, :create, :destroy]
   end
 
   resources :courses

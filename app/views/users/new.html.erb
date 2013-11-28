@@ -10,6 +10,10 @@
     <%= f.text_field :real_name %>
   </p>
   <p>
+    <%= f.label :is_admin %>
+    <%= f.check_box :is_admin, :class => 'checkbox', checked_value: 1, unchecked_value: 0 %>
+  </p>
+  <p>
     <%= f.submit %>
   </p>
 <% end %>

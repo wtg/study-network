@@ -41,5 +41,9 @@
       <p> Last Updated: <%= @user.updated_at.to_date %> </p>
       <p> Created: <%= @user.created_at.to_date %> </p>
     <% end %>
+    <% if can_edit? or is_admin? %>
+      <hr>
+      <%= link_to "Discontinue Account", user_path(@user), method: :delete, data: { confirm: 'Are you sure?'}, :class => 'discontinue-btn' %>
+    <% end %>
   </div>
 </div>

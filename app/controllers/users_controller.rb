@@ -14,8 +14,15 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    @classes = Registration.where(user_id: @user.id)
+    if User.exists? id: params[:id]
+      @user = User.find(params[:id])
+      if @user.inactive
+        redirect_to '/'
+      end
+      @classes = Registration.where(user_id: @user.id)
+    else
+      redirect_to '/'
+    end
   end
 
   def edit
@@ -31,9 +38,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    @user.inactive = 1
+    @user.save
+    redirect_to sign_out_path
+  end
+
   private
     def user_params
-      params.require(:user).permit(:username, :real_name, :year)
+      params.require(:user).permit(:username, :real_name, :year, :is_admin)
     end
 
 end

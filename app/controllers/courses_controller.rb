@@ -10,7 +10,10 @@ class CoursesController < ApplicationController
     @users = Array.new
     if registered_students.length > 0 
       registered_students.each do |rs|
-        @users << User.find(rs.user_id)
+        aUser = User.find(rs.user_id)
+        if not aUser.inactive
+          @users << aUser
+        end
       end
     end
   end
