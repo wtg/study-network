@@ -18,4 +18,18 @@ class CoursesController < ApplicationController
     end
   end
 
+  def new
+  end
+
+  def create
+    @course = Course.new(course_params)
+    @course.save
+    redirect_to @course
+  end
+
+private
+  def course_params
+    params.require(:course).permit(:title, :crn, :abrev_name, :level, :section)
+  end
+
 end

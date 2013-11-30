@@ -7,4 +7,14 @@ class ApplicationController < ActionController::Base
     not session[:cas_user].nil?
   end
 
+  def is_admin?
+    User.find_by_username(session[:cas_user]).is_admin
+  end
+
+  def authorize_admins_only
+    if not is_admin? 
+      redirect_to '/'
+    end 
+  end
+
 end

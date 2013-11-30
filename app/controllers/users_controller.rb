@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_filter :authorize_admins_only, only: [:new, :create, :index]
+
   def index
     @users = User.all
   end

@@ -1,9 +1,16 @@
-<%= form_for :new_course_registrations, :url => user_registrations_path do |f| %>
-  <%= f.submit :class => 'btn btn-primary'%><br><br>
-  <% @courses.each do |course| %>
-    <div class="checkbox"><%= f.check_box :registrations, {multiple: true}, course.crn, nil %> <%= course.title %> 
-      <br> <%= " section: " + course.section %><%= " level: " + course.level %><%= " crn: " + course.crn %>
-    </div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Select your Classes</h3>
+  </div>
+  <div class="panel-body">
+  <%= form_for :new_course_registrations, :url => user_registrations_path do |f| %>
+    <%= f.submit :class => 'btn btn-primary'%><br><br>
+    <% @courses.each do |course| %>
+      <p class="checkbox"><%= f.check_box :registrations, {multiple: true}, course.crn, nil %> <%= course.title %> 
+        <br> <%= " section: " + course.section %><%= " level: " + course.level %><%= " crn: " + course.crn %>
+      </p>
+    <% end %>
   <% end %>
-<% end %>
+  </div>
+</div>
 

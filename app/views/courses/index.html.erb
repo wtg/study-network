@@ -5,7 +5,7 @@
   <div class="panel-body">
     <% if @courses %>
       <% @courses.each do |course| %>
-      <p><%= link_to course.abrev_name + " " + course.title +  " " + 
+      <p class="course-link"><%= link_to course.abrev_name + " " + course.title +  " " + 
           course.crn + " " + course.level + " " + course.section, course
           %> </p>
       <% end %>
