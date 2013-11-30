@@ -1,13 +1,21 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title">All Classes</h3>
+    <h3 class="panel-title">Classes Index</h3>
   </div>
   <div class="panel-body">
+    <table class='table'>
+      <tr>
+        <th>Course</th>
+        <th></th>
+      </tr>
     <% if @courses %>
       <% @courses.each do |course| %>
-      <p class="course-link"><%= link_to course.abrev_name + " " + course.title +  " " + 
-          course.crn + " " + course.level + " " + course.section, course
-          %> </p>
+      <tr>
+        <td class="course-link"><%= link_to course.abrev_name + " " + course.title +  " " + 
+            course.crn + " " + course.level + " " + course.section, course
+            %> </td>
+        <td><%= link_to 'Edit', edit_course_path(course) %></td>
+      </tr>
       <% end %>
     <% end %>
   </div>
