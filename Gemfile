@@ -14,7 +14,6 @@ group :assests do
   gem 'coffee-rails', '~> 4.0.0'
 end
 
-gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'

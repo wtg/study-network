@@ -12,6 +12,10 @@
     <%= f.label :real_name %>
     <%= f.text_field :real_name, value: @user.real_name %>
   </p>
+  <p>
+    <%= f.label :email %>
+    <%= f.text_field :email, value: @user.email %>
+  </p>
   <p> 
     <%= f.label :year %>
     <%= f.select :year, User::YEARS, value: @user.year %>

@@ -1,3 +1,4 @@
+<br />
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title"><%= @course.abrev_name + " - " + @course.title %></h3>
@@ -5,12 +6,8 @@
         <%= "Section: " + @course.section %> |
         <%= "CRN: " + @course.crn %></h5>
   </div>
-</div>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Students</h3>
-  </div>
   <div class="panel-body">
+    <h3 class="panel-title">Students</h3><br />
     <% if @users.length > 0 %>
       <ul class="unstyled inline">
       <% @users.each do |user| %>

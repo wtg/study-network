@@ -5,11 +5,14 @@
   <div class="panel-body">
   <%= form_for :new_course_registrations, :url => user_registrations_path do |f| %>
     <%= f.submit :class => 'btn btn-primary'%><br><br>
+    <div id="accordion">
+      <h3>First Header</h3>
     <% @courses.each do |course| %>
-      <p class="checkbox"><%= f.check_box :registrations, {multiple: true}, course.crn, nil %> <%= course.title %> 
+      <div class="checkbox"><%= f.check_box :registrations, {multiple: true}, course.crn, nil %> <%= course.title %> 
         <br> <%= " section: " + course.section %><%= " level: " + course.level %><%= " crn: " + course.crn %>
-      </p>
+      </div>
     <% end %>
+  </div>
   <% end %>
   </div>
 </div>

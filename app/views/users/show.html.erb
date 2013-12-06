@@ -1,6 +1,5 @@
 <!-- User Show Page -->
-<% if can_edit? and not is_admin? %><h3> Welcome <%= if !@user.real_name then @user.username else @user.real_name end %> </h3><% end %>
-
+<br />
 <!-- Registered Courses Panel -->
 <% if can_edit? or is_admin? %>
 <div class="panel panel-default">
@@ -14,10 +13,9 @@
       </li>
     <% end %>
     </ul>
-    <%= link_to "+ Add Classes", new_user_registration_path(user_id: params[:id]), :class => "btn btn-primary btn-lg" %>
+    <%= link_to "+ Add Classes", new_user_registration_path(user_id: params[:id]), :class => "btn btn-primary" %>
   </div>
 </div>
-<br />
 <% end %>
 
 <!-- Account Details Panel -->
@@ -34,9 +32,10 @@
       <p> RCS ID: <%= @user.username %> </p>
     <% end %>
     <p> Name: <%= @user.real_name %> </p>
+    <p> Email: <%= @user.email %> </p>
     <p> Year: <%= @user.year %> </p>
     <% if can_edit? %>
-      <%= link_to "Edit Details", edit_user_path(@user), :class => "btn btn-primary btn-lg" %>
+      <%= link_to "Edit Details", edit_user_path(@user), :class => "btn btn-primary" %>
       <hr />
       <p> Last Updated: <%= @user.updated_at.to_date %> </p>
       <p> Created: <%= @user.created_at.to_date %> </p>
