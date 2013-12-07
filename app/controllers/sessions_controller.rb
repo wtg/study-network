@@ -16,14 +16,15 @@ class SessionsController < ApplicationController
         @user.inactive = 0
         @user.save
       end
+      flash[:notice] = "You have successfully logged in."
       redirect_to @user
     end
   end
 
-  def destroy 
-    CASClient::Frameworks::Rails::Filter.logout(self)
+  def destroy
     session[:cas_user] = nil
-    @user = nil
+    @user = nil 
+    CASClient::Frameworks::Rails::Filter.logout(self)
   end
 
 end

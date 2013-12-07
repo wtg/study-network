@@ -9,12 +9,12 @@
   <div class="panel-body">
     <h3 class="panel-title">Students</h3><br />
     <% if @users.length > 0 %>
-      <ul class="unstyled inline">
+      <div class="list-group">
       <% @users.each do |user| %>
         <% if user.id == get_signedin_id %>
-          <li><%= link_to "You", user %></li>
+          <%= link_to "You", user, class: 'list-group-item' %>
         <% else %>
-          <li><%= link_to user.real_name, user %></li>
+          <%= link_to user.real_name, user, class: 'list-group-item'  %>
         <% end %>
       <% end %>
       </ul>
