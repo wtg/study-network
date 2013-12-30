@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-14">
       <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title"><%= @course.abrev_name + " - " + @course.title %></h3>
@@ -16,13 +16,20 @@
       <div class="row">
         <div class="panel panel-default">
           <div class="panel-body">
-            <h3 class="panel-title">Text Board</h3><br />
+            <h3 class="panel-title">Message Board</h3><hr />
+            <div style="float: right">
+              <%= link_to "+ New Post", new_course_post_path(@course), class: "btn btn-primary btn-xs" %>
+            </div>
+            <br /><br />
             <% @posts.each do |post| %>
-              <%= post.title %>
-              <br />
-              <%= post.body %>
-              <hr />
-              <br />
+              <div class="panel panel-danger">
+                <div class="panel-heading">
+                  <b><%= post.title.capitalize %></b>
+                </div>
+                <div class="panel-body">
+                  <%= post.body %>
+                </div>
+              </div>
             <% end %>
           </div>
         </div>
@@ -31,13 +38,11 @@
     <div class="col-sm-3">
       <div class="panel panel-default">
         <div class="panel-body">
-          <h3 class="panel-title">Connections</h3><br />
+          <h3 class="panel-title">Connections</h3><hr />
           <% if @users.length > 0 %>
             <div class="list-group">
             <% @users.each do |user| %>
-              <% if user.id == get_signedin_id %>
-                <%= link_to "You", user, class: 'list-group-item' %>
-              <% else %>
+              <% if user.id != get_signedin_id %>
                 <%= link_to user.real_name, user, class: 'list-group-item'  %>
               <% end %>
             <% end %>

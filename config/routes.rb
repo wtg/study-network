@@ -5,8 +5,9 @@ StudyNetwork::Application.routes.draw do
     resources :registrations, only: [:new, :create, :destroy]
   end
 
-  resources :courses
-  resources :posts
+  resources :courses do
+    resources :posts, only: [:new, :create, :edit, :update, :destroy]
+  end
 
   get '/sign_in', to: 'sessions#new'
   get '/sign_out', to: 'sessions#destroy'
