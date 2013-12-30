@@ -15,7 +15,8 @@ group :assests do
 end
 
 gem 'jquery-rails'
-gem 'turbolinks'
+gem 'jquery-ui-rails'
+#gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 group :doc do

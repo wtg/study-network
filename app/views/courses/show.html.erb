@@ -1,25 +1,52 @@
-<br />
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title"><%= @course.abrev_name + " - " + @course.title %></h3>
-    <h5><%= "Level: " + @course.level %> | 
-        <%= "Section: " + @course.section %> |
-        <%= "CRN: " + @course.crn %></h5>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= @course.abrev_name + " - " + @course.title %></h3>
+          <h5><%= "Level: " + @course.level %> | 
+              <%= "Section: " + @course.section %> |
+              <%= "CRN: " + @course.crn %></h5>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="panel-body">
-    <h3 class="panel-title">Students</h3><br />
-    <% if @users.length > 0 %>
-      <div class="list-group">
-      <% @users.each do |user| %>
-        <% if user.id == get_signedin_id %>
-          <%= link_to "You", user, class: 'list-group-item' %>
-        <% else %>
-          <%= link_to user.real_name, user, class: 'list-group-item'  %>
-        <% end %>
-      <% end %>
-      </ul>
-    <% else %>
-      <p>No Connections Found :( </p>
-    <% end %>
+  <div class="row">
+    <div class="col-sm-9">
+      <div class="row">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h3 class="panel-title">Text Board</h3><br />
+            <% @posts.each do |post| %>
+              <%= post.title %>
+              <br />
+              <%= post.body %>
+              <hr />
+              <br />
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h3 class="panel-title">Connections</h3><br />
+          <% if @users.length > 0 %>
+            <div class="list-group">
+            <% @users.each do |user| %>
+              <% if user.id == get_signedin_id %>
+                <%= link_to "You", user, class: 'list-group-item' %>
+              <% else %>
+                <%= link_to user.real_name, user, class: 'list-group-item'  %>
+              <% end %>
+            <% end %>
+            </ul>
+          <% else %>
+            <p>No Connections Found :( </p>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

@@ -1,7 +1,8 @@
 module ApplicationHelper
 
   def signed_in?
-    not session[:cas_user].nil?
+    @user = User.find_by_username(session[:cas_user])
+    not session[:cas_user].nil? and not @user.nil?
   end
 
   def get_signedin_name

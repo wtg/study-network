@@ -10,6 +10,7 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:id])
     registered_students = Registration.where(course_id: params[:id])
     @users = User.joins(:registrations).where(users: {inactive: false}, registrations: {course_id: params[:id]})
+    @posts = Post.where(course_id: params[:id])
   end
 
   def new

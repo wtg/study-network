@@ -6,6 +6,7 @@ StudyNetwork::Application.routes.draw do
   end
 
   resources :courses
+  resources :posts
 
   get '/sign_in', to: 'sessions#new'
   get '/sign_out', to: 'sessions#destroy'
