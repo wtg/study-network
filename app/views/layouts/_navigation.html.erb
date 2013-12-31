@@ -6,7 +6,7 @@
     <ul class="nav navbar-nav">
     <% if signed_in? %>
       <li>
-        <%= link_to get_signedin_name + "'s Profile", sign_in_path %>
+        <%= link_to "Profile", sign_in_path %>
       </li>
       <li> 
         <%= link_to "Sign Out", sign_out_path %>

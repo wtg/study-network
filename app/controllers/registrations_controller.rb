@@ -7,6 +7,7 @@ class RegistrationsController < ApplicationController
   def new
     @user = User.find(params[:user_id])
     @courses = Course.find(:all)
+    @departments = Course.uniq.pluck(:abrev_name)
   end
 
   def create
