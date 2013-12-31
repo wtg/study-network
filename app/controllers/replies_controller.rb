@@ -10,7 +10,7 @@ class RepliesController < ApplicationController
     @reply = Reply.new(reply_params)
     @reply.post_id = @post.id
     if @reply.save
-      redirect_to new_course_post_reply_path(course_id: @course.id, post_id: @post.id)
+      redirect_to course_post_path(id: @post.id, course_id: @course.id, post_id: @post.id)
     else
       redirect_to new_course_post_reply_path(@post)
     end
