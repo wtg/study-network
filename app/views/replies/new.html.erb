@@ -1,0 +1,19 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Reply to <%= @post.title %></h3>
+  </div>
+  <div class="panel-body">
+  <%= form_for :new_course_post_reply, :url => course_post_replies_path do |f| %>  
+    <p>
+      <%= f.label :reply %>
+    </p>
+    <p>
+      <%= f.text_area :body, cols: 50, rows: 7 %>
+    </p>
+    <p>
+      <%= f.submit :class => 'btn btn-primary'%><br><br>
+    </p>
+  </div>
+  <% end %>
+  </div>
+</div>

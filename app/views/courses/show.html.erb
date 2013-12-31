@@ -24,7 +24,7 @@
             <% @posts.each do |post| %>
               <div class="panel panel-danger">
                 <div class="panel-heading">
-                  <b><%= post.title.capitalize %></b>
+                  <b><%= link_to post.title.capitalize, course_post_path(course_id: params[:id], post_id: post.id) %></b>
                 </div>
                 <div class="panel-body">
                   <%= post.body %>

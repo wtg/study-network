@@ -1,0 +1,15 @@
+<%= link_to '<< Back to Course', course_path(params[:course_id]), class: 'btn btn-primary btn-xs' %>
+<br /><br />
+<div class="jumbotron">
+  <h3><%= @post.title %></h3>
+  <p><%= @post.body %></p>
+</div>
+<div style="float: right">
+  <%= link_to '+ Reply', new_course_post_reply_path(post_id: @post.id), class: 'btn btn-primary btn-xs' %>
+</div>
+<br /><br />
+<% @replies.each do |reply| %>
+  <div class="jumbotron" style="margin-left: 2em">
+    <p><%= reply.body %></p>
+  </div>
+<% end %>
