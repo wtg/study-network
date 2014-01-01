@@ -7,7 +7,9 @@ class RegistrationsController < ApplicationController
   def new
     @user = User.find(params[:user_id])
     @courses = Course.find(:all)
-    @departments = Course.uniq.pluck(:abrev_name)
+    all_departments = Course.uniq.pluck(:abrev_name)
+    @department_groups = Array.new()
+    all_departments.in_groups(2, nil) { |dept_group| @department_groups << dept_group}
   end
 
   def create
