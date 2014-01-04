@@ -20,17 +20,14 @@
             <div style="float: right">
               <%= link_to "+ New Post", new_course_post_path(@course), class: "btn btn-primary btn-xs" %>
             </div>
-            <br /><br />
-            <% @posts.each do |post| %>
-              <div class="panel panel-danger">
-                <div class="panel-heading">
-                  <b><%= link_to post.title.capitalize, course_post_path(course_id: params[:id], post_id: post.id) %></b>
-                </div>
-                <div class="panel-body">
-                  <%= post.body %>
-                </div>
-              </div>
+            <br /> <br />
+            <%= paginate @posts %>
+            <% if !@posts.empty? %>
+              <% @posts.each do |post| %>
+                <%= render partial: "posts/post_tile", locals: { post: post, course_id: params[:id], post_id: post.id } %>
+              <% end %>
             <% end %>
+            <%= paginate @posts %>
           </div>
         </div>
       </div>

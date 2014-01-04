@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   def new
     # First login 
     if User.find_by_username(session[:cas_user]).nil?
-      @user = User.new(username: session[:cas_user], is_admin: 0, inactive: 0)
+      @user = User.new(username: session[:cas_user], is_admin: 0, inactive: 0, real_name: session[:cas_user])
       @user.save
       redirect_to @user
       # User has already logged in before

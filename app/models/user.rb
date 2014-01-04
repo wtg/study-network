@@ -3,4 +3,7 @@ class User < ActiveRecord::Base
   has_many :registrations
   has_many :courses, :through => :registrations
   has_many :posts, :dependent => :delete_all
+
+  validates :username, :real_name, :is_admin, :inactive, presence: true
+
 end

@@ -2,11 +2,14 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.0.0'
 
-gem 'sqlite3'
-
 gem 'rubycas-client'
-
 gem 'nokogiri'
+gem 'kaminari'
+
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'jbuilder', '~> 1.2'
+
 
 group :assests do
   gem 'sass-rails', '~> 4.0.0'
@@ -14,12 +17,11 @@ group :assests do
   gem 'coffee-rails', '~> 4.0.0'
 end
 
-gem 'jquery-rails'
-gem 'jquery-ui-rails'
-#gem 'turbolinks'
-gem 'jbuilder', '~> 1.2'
+group :development, :test do 
+  gem 'sqlite3'
+  gem 'rspec-rails', '2.13.1'
+end
 
-group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
+group :test do
+  gem 'capybara', '2.1.0'
 end
