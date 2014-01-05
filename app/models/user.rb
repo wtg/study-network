@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :courses, :through => :registrations
   has_many :posts, :dependent => :delete_all
 
-  validates :username, :real_name, :is_admin, :inactive, presence: true
+  validates :username, :real_name, :email, presence: true, uniqueness: { case_sensitive: false }
+  validates :inactive, :is_admin, inclusion: { in: [true, false] }
 
 end

@@ -1,12 +1,12 @@
 require 'spec_helper'
 
 describe "Pages" do
+
+  subject { page } 
   
   describe "Home Page" do 
-    it "should have  the content 'Rensselaer Study Network'" do 
-      visit '/'
-      expect(page).to have_content('Rensselaer Study Network')
-    end
+    before { visit root_path }
+    it { should have_content('Rensselaer Study Network') }
   end
 
 

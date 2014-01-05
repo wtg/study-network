@@ -8,7 +8,7 @@
   <%= form_for :user, url: user_path(@user), method: :patch do |f| %>
     <br>
     <p>
-      <%= f.label :real_name %>
+      <%= f.label :name %>
       <%= f.text_field :real_name, value: @user.real_name %>
     </p>
     <p>

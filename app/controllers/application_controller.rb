@@ -15,7 +15,11 @@ class ApplicationController < ActionController::Base
   end
 
   def is_admin?
-    User.find_by_username(session[:cas_user]).is_admin
+    user = User.find_by_username(session[:cas_user])
+    if user 
+      return user.is_admin
+    end
+    false
   end
 
   def authorize_admins_only
@@ -30,13 +34,16 @@ class ApplicationController < ActionController::Base
 
   def can_edit?
     user = User.find_by_username(session[:cas_user])
-    if user.id == params[:id].to_i
-      true
-    elsif is_admin?
-      true
-    else
-      false
+    if user 
+      if user.id == params[:id].to_i
+        return true
+      elsif is_admin?
+        return true
+      else
+        return false
+      end
     end
+    false
   end
 
 end
