@@ -29,6 +29,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    @registrations = Registration.where(user_id: @user.id)
   end
 
   def update

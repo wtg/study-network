@@ -1,6 +1,31 @@
 <!-- User Logged in-->
 <% if can_edit? %>
 <div class="row">
+
+<!-- Account Details Panel -->
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Account Details for <%= if @user.real_name then @user.real_name else @user.username end %> </h3>
+      </div>
+      <div class="panel-body">
+        <div class="profile-pic">
+          <%= image_tag avatar_url(@user), :class => 'img-responsive' %> 
+        </div>
+        <br /> <br />
+        <p> RCS ID: <%= @user.username %> </p>
+        <p> Name: <%= @user.real_name %> </p>
+        <p> Email: <%= @user.email %> </p>
+        <p> Year: <%= @user.year %> </p>
+        <%= link_to "Edit Details", edit_user_path(@user), :class => "btn btn-primary btn-sm" %>
+        <hr />
+        <p> Last Updated: <%= @user.updated_at.to_date %> </p>
+        <p> Created: <%= @user.created_at.to_date %> </p>
+        <hr>
+      </div>
+    </div>
+  </div>
+
 <!-- Registered Courses Panel -->
   <div class="col-md-8">
     <div class="panel panel-default">
@@ -15,31 +40,11 @@
           </li>
         <% end %>
         </ul>
-        <%= link_to "+ Add Classes", new_user_registration_path(user_id: params[:id]), :class => "btn btn-primary" %>
+        <%= link_to "+ Add Classes", new_user_registration_path(user_id: params[:id]), :class => "btn btn-primary btn-sm" %>
       </div>
     </div>
   </div>
 
-<!-- Account Details Panel -->
-  <div class="col-md-4">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Account Details for <%= if @user.real_name then @user.real_name else @user.username end %> </h3>
-      </div>
-      <div class="panel-body">
-        <p> RCS ID: <%= @user.username %> </p>
-        <p> Name: <%= @user.real_name %> </p>
-        <p> Email: <%= @user.email %> </p>
-        <p> Year: <%= @user.year %> </p>
-        <%= link_to "Edit Details", edit_user_path(@user), :class => "btn btn-primary" %>
-        <hr />
-        <p> Last Updated: <%= @user.updated_at.to_date %> </p>
-        <p> Created: <%= @user.created_at.to_date %> </p>
-        <hr>
-        <%= link_to "Discontinue Account", user_path(@user), method: :delete, data: { confirm: 'Are you sure?'}, :class => 'discontinue-btn' %>
-      </div>
-    </div>
-  </div>
 </div>
 
 <% else %>
@@ -49,7 +54,12 @@
   <div class="col-md-4">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title"> <%= if @user.real_name then @user.real_name else @user.username end %> </h3>
+        <h3 class="panel-title">
+          <div class="profile-pic">
+            <%= image_tag avatar_url(@user), :class => 'img-responsive' %> 
+          </div> <br />
+          <div style="font-size: 36px;"><%= if @user.real_name then @user.real_name else @user.username end %></div>
+        </h3>
       </div>
       <div class="panel-body">
         <p> Email: <%= @user.email %> </p>

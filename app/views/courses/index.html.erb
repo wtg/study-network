@@ -12,7 +12,7 @@
       <% @courses.each do |course| %>
       <tr>
         <td class="course-link"><%= link_to course.abrev_name + " " + course.title +  " " + 
-            course.crn + " " + course.level + " " + course.section, course
+            course.crn + " " + course.level , course
             %> </td>
         <td><%= link_to 'Edit', edit_course_path(course) %></td>
       </tr>
