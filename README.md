@@ -21,7 +21,4 @@ Dependencies
   * Jquery Rails
   * Nokogiri
   * Kaminari
-
-License
--------
   
