@@ -18,7 +18,7 @@ Dependencies
   * Ruby
   * Rails
   * Twitter Bootstrap Version 3 
-  * Jquery Rails
+  * jQuery Rails
   * Nokogiri
   * Kaminari
   
