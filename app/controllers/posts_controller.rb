@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:post_id])
     @replies = Reply.where(post_id: params[:post_id])
+    @user = get_signedin_user
   end
 
   def new

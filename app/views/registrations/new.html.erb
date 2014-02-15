@@ -17,7 +17,7 @@
                   <% @courses.select { |c| c.abrev_name == dept }.each do |course| %>
                   <div class="col-md-6">
                     <div class="checkbox"><%= f.check_box :registrations, {multiple: true}, course.crn, nil %> <%= course.title %> 
-                      <br> <%= " section: " + course.section %><%= " level: " + course.level %><%= " crn: " + course.crn %>
+                      <br><%= " level: " + course.level %> | <%= " crn: " + course.crn %>
                     </div>
                   </div>
                   <% end %>
@@ -44,7 +44,7 @@
                 <% @courses.select { |c| c.abrev_name == dept }.each do |course| %>
                 <div class="col-md-6">
                   <div class="checkbox"><%= f.check_box :registrations, {multiple: true}, course.crn, nil %> <%= course.title %> 
-                    <br> <%= " section: " + course.section %><%= " level: " + course.level %><%= " crn: " + course.crn %>
+                    <br><%= " level: " + course.level %> | <%= " crn: " + course.crn %>
                   </div>
                 </div>
                 <% end %>

@@ -6,6 +6,8 @@ StudyNetwork::Application.routes.draw do
   end
 
   resources :courses do
+    get 'connections'
+    get 'messages'
     resources :posts do
       resources :replies 
     end

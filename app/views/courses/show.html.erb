@@ -34,7 +34,7 @@
     <div class="col-sm-3">
       <div class="panel panel-default">
         <div class="panel-body">
-          <h3 class="panel-title">Connections</h3><hr />
+          <h3 class="panel-title"><%= link_to 'View Connections', course_connections_path(@course) %></h3><hr />
           <% if @users.length > 0 %>
             <% @users.each do |user| %>
               <% if user.id != get_signedin_id %>
@@ -43,7 +43,13 @@
                     <%= image_tag avatar_url(user), :class => 'img-responsive', width: '34px', height: '34px' %> 
                   </a>
                   <div class="media-body">
-                    <h4 class="media-heading"><%= link_to user.real_name, user %></h4>
+                    <h4 class="media-heading">
+                    <% if not user.real_name.empty? %>
+                      <%= link_to user.real_name, user %>
+                    <% else %>
+                      <%= link_to user.username, user %>
+                    <% end %>
+                    </h4>
                   </div>
                 </div>
               <% end %>

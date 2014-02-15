@@ -1,7 +1,18 @@
 <%= link_to '<< Back to Course', course_path(params[:course_id]), class: 'btn btn-primary btn-xs' %>
 <br /><br />
 <div class="jumbotron">
-  <h3><%= @post.title %></h3>
+  <div class='pull-right'>
+    <p> 
+      <% if not @user.real_name.empty? %>
+        <%= link_to @user.real_name, user_path(@user) %>
+      <% else %>
+        <%= link_to @user.username, user_path(@user) %>
+      <% end %>
+       posted on
+      <%= @post.created_at.to_date %>
+    </p>
+  </div>
+  <h3><b><%= @post.title %></b></h3>
   <p><%= @post.body %></p>
 </div>
 <div style="float: right">
@@ -10,6 +21,17 @@
 <br /><br />
 <% @replies.each do |reply| %>
   <div class="jumbotron" style="margin-left: 2em">
+    <div class="pull-right">
+      <p>
+        <% if not @user.real_name.empty? %>
+          <%= link_to @user.real_name, user_path(@user) %>
+        <% else %>
+          <%= link_to @user.username, user_path(@user) %>
+        <% end %>
+        replied on 
+        <%= reply.created_at.to_date %>
+      </p>
+    </div>
     <p><%= reply.body %></p>
   </div>
 <% end %>
