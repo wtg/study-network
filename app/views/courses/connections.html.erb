@@ -1,5 +1,6 @@
+<%= link_to '<< Back to course', course_path(@course), :class => 'btn btn-xs' %><br /><br />
 <div class="jumbotron">
-  <h2> <%= @connections.length %> Connections in <%= @course.title.downcase.capitalize %></h2>
+  <h2> <%= @connections.length %> Connections in <%= link_to @course.title.downcase.capitalize, course_path(@course), :class => 'unstyled-link' %></h2>
   <hr />
   <div class="row">
     <% if @connections.empty? %> 

@@ -2,7 +2,7 @@
   <div class="panel-heading">
     <h3 class="panel-title"> Editing <%= @user.username %> </h3>
     <br />
-    <%= link_to ' < Back to profile', user_path(@user) %>
+    <%= link_to '<< Back to profile', user_path(@user), :class => 'btn btn-xs' %>
   </div>
   <div class="panel-body">
   <%= form_for :user, url: user_path(@user), method: :patch do |f| %>

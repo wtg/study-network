@@ -1,0 +1,19 @@
+<%= link_to '<< Back to course', course_path(@course), :class => 'btn btn-xs' %><br /><br />
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <p>Message board for <%= link_to @course.title.downcase.capitalize, course_path(@course), :class => 'unstyled-link' %></p><hr />
+        <div style="float: right">
+          <%= link_to "+ New Post", new_course_post_path(@course), class: "btn btn-primary btn-xs" %>
+        </div>
+        <br /> <br />
+        <%= paginate @posts %>
+        <% if !@posts.empty? %>
+          <% @posts.each do |post| %>
+            <%= render partial: "posts/post_tile", locals: { post: post, course_id: params[:course_id], post_id: post.id } %>
+          <% end %>
+        <% end %>
+        <%= paginate @posts %>
+    </div>
+  </div>
+</div>

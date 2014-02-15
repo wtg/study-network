@@ -15,7 +15,7 @@
       <div class="row">
         <div class="panel panel-default">
           <div class="panel-body">
-            <h3 class="panel-title">Message Board</h3><hr />
+            <h3 class="panel-title"><%= link_to "Message Board", course_messages_path(@course) %></h3><hr />
             <div style="float: right">
               <%= link_to "+ New Post", new_course_post_path(@course), class: "btn btn-primary btn-xs" %>
             </div>

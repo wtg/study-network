@@ -21,3 +21,10 @@
   width: 34px;
   margin: 1px;
 }
+
+.unstyled-link { 
+  color: inherit;
+  &:hover { 
+    text-decoration: none;
+  }
+}

@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
 
-  before_filter :authorize_admins_only, except: [:show, :connections]
+  before_filter :authorize_admins_only, except: [:show, :connections, :messages]
 
   def index
     @courses = Course.all
@@ -8,14 +8,21 @@ class CoursesController < ApplicationController
 
   def show
     @course = Course.find(params[:id])
-    @users = User.joins(:registrations).where(users: {inactive: false}, registrations: {course_id: params[:id]})
-    @posts = Post.where(course_id: params[:id])
-    @posts = Kaminari.paginate_array(@posts).page(params[:page]).per(10)
+    users = User.joins(:registrations).where(users: {inactive: false}, registrations: {course_id: params[:id]}).shuffle!
+    @users = Kaminari.paginate_array(users).page(params[:page]).per(5)
+    posts = Post.where(course_id: params[:id])
+    @posts = Kaminari.paginate_array(posts).page(params[:page]).per(10)
   end
 
   def connections
     @course = Course.find(params[:course_id])
-    @connections = User.joins(:registrations).where(users: {inactive: false}, registrations: {course_id: params[:course_id]})
+    @connections = User.joins(:registrations).where(users: {inactive: false}, registrations: {course_id: params[:course_id]}).shuffle!
+  end
+
+  def messages 
+    @course = Course.find(params[:course_id])
+    posts = Post.where(course_id: params[:course_id])
+    @posts = Kaminari.paginate_array(posts).page(params[:page]).per(10)
   end
 
   def new
