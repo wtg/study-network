@@ -2,7 +2,7 @@
   <div class="panel-heading">
     <b><%= link_to post.title.capitalize , course_post_path(course_id: course_id, post_id: post_id, id: post_id) %> by <%= User.find(post.user_id).real_name %> </b>
     <span class="badge">
-      <% replies = Reply.where(post_id: post_id).length %>
+      <% replies = Reply.post_replies(post_id).length %>
       <%= link_to pluralize(replies.to_i, 'Reply'), 
                   course_post_path(course_id: course_id, post_id: post_id, id: post_id), :class => "badge-link" %> 
     </span>

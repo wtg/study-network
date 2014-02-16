@@ -3,8 +3,11 @@ class Post < ActiveRecord::Base
   belongs_to :user
   belongs_to :course
 
+  validates :title, :body, :course_id, :user_id, :username, presence: true
+
   has_many :replies, :dependent => :delete_all
 
-  validates :title, :body, :course_id, :user_id, :username, presence: true
+  scope :course_posts, lambda { |course_id| joins(:user).where(users: {inactive: false}, 
+                              posts: {course_id: course_id}).order('created_at DESC') }
 
 end

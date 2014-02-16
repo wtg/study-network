@@ -8,20 +8,20 @@ class CoursesController < ApplicationController
 
   def show
     @course = Course.find(params[:id])
-    users = User.joins(:registrations).where(users: {inactive: false}, registrations: {course_id: params[:id]}).shuffle!
+    users = User.course_registrations(params[:id])
     @users = Kaminari.paginate_array(users).page(params[:page]).per(5)
-    posts = Post.where(course_id: params[:id])
+    posts = Post.course_posts(params[:id])
     @posts = Kaminari.paginate_array(posts).page(params[:page]).per(10)
   end
 
   def connections
     @course = Course.find(params[:course_id])
-    @connections = User.joins(:registrations).where(users: {inactive: false}, registrations: {course_id: params[:course_id]}).shuffle!
+    @connections = User.course_registrations(params[:course_id])
   end
 
   def messages 
     @course = Course.find(params[:course_id])
-    posts = Post.where(course_id: params[:course_id])
+    posts = Post.course_posts(params[:id]).by_active_users
     @posts = Kaminari.paginate_array(posts).page(params[:page]).per(10)
   end
 

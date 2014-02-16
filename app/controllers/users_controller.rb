@@ -21,7 +21,7 @@ class UsersController < ApplicationController
       if @user.inactive
         redirect_to '/'
       end
-      @classes = Registration.where(user_id: @user.id)
+      @classes = Registration.user_courses(@user)
     else
       redirect_to '/'
     end
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    @registrations = Registration.where(user_id: @user.id)
+    @registrations = Registration.user_courses(@user)
   end
 
   def update
