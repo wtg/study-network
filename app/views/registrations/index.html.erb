@@ -1,0 +1,18 @@
+<div class="container">
+  <%= link_to "<< Back to Profile", user_path(id: params[:user_id]), :class => "btn btn-xs" %>
+  <div class="pull-right"><%= link_to "+ Add More Classes", new_user_registration_path(user_id: params[:user_id]), :class => "btn btn-xs" %></div>
+  <br /><br />
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3> Registered Courses </h3>
+    </div>
+    <div class="panel-body">
+      <% @registrations.each do |reg| %>
+        <% course = Course.find_by_id(reg.course_id) %>
+        <div class="pull-right"><%= link_to "- Remove", edit_user_registration_path(user_id: params[:user_id], id: reg.id), data: { confirm: 'Are you sure?'}, :class => "btn btn-xs" %></div>
+        <%= course.abrev_name + " - " + course.title %><br />
+        <%= "Level: " + course.level %> | <%= "CRN: " + course.crn %><br /><hr />
+      <% end %>
+    </div>
+  </div>
+</div>

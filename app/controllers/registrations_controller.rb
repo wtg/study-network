@@ -1,7 +1,7 @@
 class RegistrationsController < ApplicationController
 
   def index
-    @registrations = Registration.find_by_user_id(params[:user_id])
+    @registrations = Registration.where(user_id: params[:user_id])
   end
 
   def new
@@ -20,6 +20,12 @@ class RegistrationsController < ApplicationController
                           user_id: params[:user_id].to_i)
     end
     redirect_to @user
+  end
+
+  def edit
+    @registration = Registration.find(params[:id])
+    @registration.destroy
+    redirect_to user_registrations_path(params[:user_id])
   end
 
   private

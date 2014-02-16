@@ -30,6 +30,10 @@
   <div class="col-md-8">
     <div class="panel panel-default">
       <div class="panel-heading">
+        <div class="pull-right">
+          <%= link_to "+ Add Classes", new_user_registration_path(user_id: params[:id]), :class => "btn btn-primary btn-xs" %>
+          <%= link_to "- Remove Classes", user_registrations_path(user_id: params[:id]), :class => "btn btn-xs" %>
+        </div>
         <h3 class="panel-title">Your Classes</h3>
       </div>
       <div class="panel-body">
@@ -40,7 +44,6 @@
           </li>
         <% end %>
         </ul>
-        <%= link_to "+ Add Classes", new_user_registration_path(user_id: params[:id]), :class => "btn btn-primary btn-sm" %>
       </div>
     </div>
   </div>
