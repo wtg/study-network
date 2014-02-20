@@ -1,4 +1,10 @@
-body { padding-top: 50px; }
+body { padding-top: 65px; }
+
+@media (max-width: 412px) {
+    body {
+        padding-top: 130px;
+    }
+}
 
 $navbarLinkColor: white;
 
@@ -57,4 +63,8 @@ $colHighlight   : #31311a;
         &:hover, &:focus {
             color: $colHighlight;
             background-color: $bgHighlight; }}
+}
+
+.panel-default > .panel-heading {
+    
 }

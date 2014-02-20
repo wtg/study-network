@@ -10,4 +10,6 @@ class Post < ActiveRecord::Base
   scope :course_posts, lambda { |course_id| joins(:user).where(users: {inactive: false}, 
                               posts: {course_id: course_id}).order('created_at DESC') }
 
+  scope :recent_posts, all.sort_by(&:created_at).reverse
+
 end

@@ -8,4 +8,6 @@ class Reply < ActiveRecord::Base
   scope :post_replies, lambda { |post_id| joins(:user).where(users: {inactive: false}, 
                               replies: {post_id: post_id}).order('created_at DESC') }
 
+  scope :recent_replies, all.sort_by(&:created_at).reverse
+
 end

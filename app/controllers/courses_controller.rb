@@ -21,7 +21,7 @@ class CoursesController < ApplicationController
 
   def messages 
     @course = Course.find(params[:course_id])
-    posts = Post.course_posts(params[:id]).by_active_users
+    posts = Post.course_posts(params[:id])
     @posts = Kaminari.paginate_array(posts).page(params[:page]).per(10)
   end
 

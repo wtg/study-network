@@ -5,6 +5,10 @@
     <%= link_to '<< Back to profile', user_path(@user), :class => 'btn btn-xs' %>
   </div>
   <div class="panel-body">
+    <p> <strong>Profile Picture</strong> </p>
+    <p> To change your profile picture, login to <%= link_to "Gravatar", "http://en.gravatar.com/" %> and upload a photo
+      using your RSN email: <strong><span id="current_email"><%= @user.email %></span></strong> </p>
+
   <%= form_for :user, url: user_path(@user), method: :patch do |f| %>
     <br>
     <p>

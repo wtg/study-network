@@ -2,8 +2,8 @@
   <div class="row">
     <div class="col-sm-14">
       <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title"><%= @course.abrev_name + " - " + @course.title %></h3>
+        <div class="default-margin">
+          <h1 class="panel-title"><%= @course.abrev_name + " - " + @course.title %></h1>
           <h5><%= "Level: " + @course.level %> | 
               <%= "CRN: " + @course.crn %></h5>
         </div>
@@ -15,7 +15,7 @@
       <div class="row">
         <div class="panel panel-default">
           <div class="panel-body">
-            <h3 class="panel-title"><%= link_to "View Message Board", course_messages_path(@course) %></h3><hr />
+            <h3 class="panel-title"><%= link_to "Message Board", course_messages_path(@course) %></h3><hr />
             <div style="float: right">
               <%= link_to "+ New Post", new_course_post_path(@course), class: "btn btn-primary btn-xs" %>
             </div>
@@ -34,7 +34,7 @@
     <div class="col-sm-3">
       <div class="panel panel-default">
         <div class="panel-body">
-          <h3 class="panel-title"><%= link_to 'View Connections', course_connections_path(@course) %></h3><hr />
+          <h3 class="panel-title"><%= link_to 'Connections', course_connections_path(@course) %></h3><hr />
           <% if @users.length > 0 %>
             <% @users.each do |user| %>
               <% if user.id != get_signedin_id %>
@@ -60,7 +60,7 @@
         </div>
         <hr />
         <div class="panel-body">
-          <h3 class="panel-title"> <%= link_to "View Course Documents", "#" %></h3><br />
+          <h3 class="panel-title"> <%= link_to "Course Documents", "#" %></h3><br />
           <%= link_to "Upload", "#", :class => "btn btn-xs" %>
         </div>
       </div>

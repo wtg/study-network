@@ -15,15 +15,36 @@
               <h3> You're signed in as <%= get_signedin_name %> </h3>
               <!-- Activity Feed -->
                 <hr />
-                <h3 class="panel-title"> Recent Posts in Your Network </h3>
+                <h3 class="panel-title"> Posts in Your Network </h3>
                 <br />
                 <div class="container">
                   <div class="row">
-                    <% recent_posts.each do |rPost| %>
+                    <% @posts.each do |rPost| %>
                       <%= render partial: 'posts/post_tile', locals: { post: rPost, course_id: rPost.course_id, post_id: rPost.id } %>
                     <% end %>
                   </div>
                 </div>
+                <hr />
+                <h3 class="panel-title"> Replies in Your Network </h3>
+                <br />
+                <div class="container">
+                  <div class="row">
+                    <% @replies.each do |rReply| %>
+                      <%= rReply.body %><br />
+                    <% end %>
+                  </div>
+                </div>
+                <br />
+                <hr />
+                <h3 class="panel-title"> Recent Document Uploads </h3>
+                <br />
+                <div class="container">
+                  <div class="row">
+
+                  </div>
+                </div>
+                <h3 class="panel-title"> New Connections </h3>
+              </div>
             </div>
           <% end %>
         </div>
