@@ -1,0 +1,26 @@
+<%= link_to '<< Back to course', course_path(@course), :class => 'btn btn-xs' %><br /> <br />
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Edit post <strong><%= @post.title %></strong> for <%= @course.title.downcase.capitalize %></h3>
+  </div>
+  <div class="panel-body">
+  <%= form_for :post, url: course_post_path(@course, @post) , method: :patch do |f| %>  
+    <p>
+      <%= f.label :title %>
+    </p>
+    <p>
+      <%= f.text_field :title, value: @post.title %>
+    </p>
+    <p>
+      <%= f.label 'Message' %>
+    </p>
+    <p>
+      <%= f.text_area :body, cols: 50, rows: 7, value: @post.body %>
+    </p>
+    <p>
+      <%= f.submit 'Save changes', :class => 'btn btn-xs'%><br><br>
+    </p>
+  </div>
+  <% end %>
+  </div>
+</div>

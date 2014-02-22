@@ -6,7 +6,14 @@
       <%= link_to pluralize(replies.to_i, 'Reply'), 
                   course_post_path(course_id: course_id, post_id: post_id, id: post_id), :class => "badge-link" %> 
     </span>
-    <div class="pull-right"><%= post.created_at.to_date %></div>
+    <% if post.user_id == get_signedin_id %>
+      <%= link_to 'edit', edit_course_post_path(course_id: course_id, post_id: post_id, id: post_id), :class => "btn btn-xs" %>
+      <%= link_to 'delete' , course_post_path(course_id: course_id, post_id: post_id, id: post_id), 
+                            method: :delete, data: { confirm: "Are you sure you would like to delete this post?" }, :class => "btn btn-xs" %>
+    <% end %>
+    <div class="pull-right">
+      <%= post.created_at.to_date %>   
+    </div>
   </div>
   <div class="panel-body">
     <%= post.body %>

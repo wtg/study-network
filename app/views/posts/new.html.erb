@@ -4,7 +4,7 @@
     <h3 class="panel-title">New post for <%= @course.title %></h3>
   </div>
   <div class="panel-body">
-  <%= form_for :new_course_posts, :url => course_posts_path do |f| %>  
+  <%= form_for :post, url: course_post_path(@course, @post) do |f| %>  
     <p>
       <%= f.label :title %>
     </p>
@@ -18,7 +18,7 @@
       <%= f.text_area :body, cols: 50, rows: 7 %>
     </p>
     <p>
-      <%= f.submit :class => 'btn btn-primary'%><br><br>
+      <%= f.submit :class => 'btn btn-xs'%><br><br>
     </p>
   </div>
   <% end %>

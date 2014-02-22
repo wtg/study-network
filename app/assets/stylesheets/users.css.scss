@@ -22,3 +22,27 @@
     height: 144px;
   }
 }
+
+.panel {
+  border-style: none;
+  box-shadow: none;
+  background-color: white;
+
+  .panel-heading {
+    background-color: white;
+  }
+}
+
+.panel-danger {
+  .panel-heading {
+    background-color:#6B9A98;
+    color: white;
+    a {
+      color: white;
+    }
+  }
+}
+
+.jumbotron {
+  background-color: white;
+}

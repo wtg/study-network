@@ -1,4 +1,7 @@
-body { padding-top: 65px; }
+body { 
+    padding-top: 65px;
+    background-color: #F0F0F0; 
+}
 
 @media (max-width: 412px) {
     body {
@@ -65,6 +68,4 @@ $colHighlight   : #31311a;
             background-color: $bgHighlight; }}
 }
 
-.panel-default > .panel-heading {
-    
-}
+

@@ -3,10 +3,11 @@
 <div class="jumbotron">
   <div class='pull-right'>
     <p> 
-      <% if not @user.real_name.empty? %>
-        <%= link_to @user.real_name, user_path(@user) %>
+      <% user = User.find(@post.user_id) %>
+      <% if not user.real_name.empty? %>
+        <%= link_to user.real_name, user_path(user) %>
       <% else %>
-        <%= link_to @user.username, user_path(@user) %>
+        <%= link_to user.username, user_path(user) %>
       <% end %>
        posted on
       <%= @post.created_at.to_date %>
@@ -20,18 +21,9 @@
 </div>
 <br /><br />
 <% @replies.each do |reply| %>
-  <div class="jumbotron" style="margin-left: 2em">
-    <div class="pull-right">
-      <p>
-        <% if not @user.real_name.empty? %>
-          <%= link_to @user.real_name, user_path(@user) %>
-        <% else %>
-          <%= link_to @user.username, user_path(@user) %>
-        <% end %>
-        replied on 
-        <%= reply.created_at.to_date %>
-      </p>
-    </div>
-    <p><%= reply.body %></p>
-  </div>
+  <%= render partial: "replies/reply_tile", locals: { reply: reply } %>
+<% end %>
+
+<% if user.id == get_signedin_id %>
+  <% link_to 'edit', edit_course_post_reply_path(post_id: @post.id) %>
 <% end %>

@@ -7,4 +7,11 @@ FactoryGirl.define do
     is_admin false
     inactive false
   end
+
+  factory :course do
+    title "RCOS"
+    crn "57324"
+    abrev_name "CSCI"
+    level "4963"
+  end
 end
