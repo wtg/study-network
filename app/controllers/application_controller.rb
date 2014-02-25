@@ -46,4 +46,10 @@ class ApplicationController < ActionController::Base
     false
   end
 
+  def basic_controller_privileges
+    if session[:cas_user] == nil
+      redirect_to "/"
+    end
+  end
+
 end

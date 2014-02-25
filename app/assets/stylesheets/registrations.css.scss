@@ -1,13 +1,16 @@
-.registration-link {
+.registration-link {  
   a {
     color: rgb(51, 51, 51);
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 20px;
     padding: 20px;
+  }
 
-    &:hover {
-      color: red;
+  &:hover {
+    background-color: #5b5b5b;
+    a {
+      color: white;
+      text-decoration: none;
     }
   }
 }

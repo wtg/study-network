@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
 
+  before_filter :basic_controller_privileges
+
   def show
     @post = Post.find(params[:post_id])
     @replies = Reply.post_replies(params[:post_id])

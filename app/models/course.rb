@@ -6,4 +6,6 @@ class Course < ActiveRecord::Base
   has_many :registrations, :dependent => :delete_all
   has_many :posts, :dependent => :delete_all
 
+  scope :department_courses, lambda { |course_dept| where(abrev_name: course_dept) }
+
 end

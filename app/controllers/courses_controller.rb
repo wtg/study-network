@@ -1,6 +1,7 @@
 class CoursesController < ApplicationController
 
   before_filter :authorize_admins_only, except: [:show, :connections, :messages]
+  before_filter :basic_controller_privileges
 
   def index
     @courses = Course.all

@@ -1,61 +1,13 @@
-<%= form_for :new_course_registrations, :url => user_registrations_path do |f| %>
-<%= f.submit "Save", :class => 'btn btn-primary btn-sm'%><br><br>
-<div class="panel-group" id="accordion">
-  <div class="row">
-    <div class="col-md-6">
-      <% @department_groups[0].each do |dept| %>
+<div class="panel panel-default">
+  <% @departments.each_slice(2) do |depts| %>
+    <div class="row">
+      <% depts.each do |dept| %>
         <% if not dept.nil? %>
-          <div class="panel panel-default">
-            <div class="panel-title">
-              <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= dept %>">
-                <%= dept %>
-              </a>
-            </div>
-            <div id="collapse<%= dept %>" class="panel-collapse collapse">
-              <div class="panel-body">
-                <div class="row">
-                  <% @courses.select { |c| c.abrev_name == dept }.each do |course| %>
-                  <div class="col-md-6">
-                    <div class="checkbox"><%= f.check_box :registrations, {multiple: true}, course.crn, nil %> <%= course.title %> 
-                      <br><%= " level: " + course.level %> | <%= " crn: " + course.crn %>
-                    </div>
-                  </div>
-                  <% end %>
-                </div> 
-              </div>
-            </div>
-          </div>
-          <br />
+        <div class="col-md-6">
+          <p class="registration-link"><%= link_to dept, { controller: 'registrations', action: 'dept', dept: dept }  %></p>
+        </div>
         <% end %>
       <% end %>
     </div>
-    <div class="col-md-6">
-    <% @department_groups[1].each do |dept| %>
-      <% if not dept.nil? %>
-        <div class="panel panel-default">
-          <div class="panel-title">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= dept %>">
-              <%= dept %>
-            </a>
-          </div>
-          <div id="collapse<%= dept %>" class="panel-collapse collapse">
-            <div class="panel-body">
-              <div class="row">
-                <% @courses.select { |c| c.abrev_name == dept }.each do |course| %>
-                <div class="col-md-6">
-                  <div class="checkbox"><%= f.check_box :registrations, {multiple: true}, course.crn, nil %> <%= course.title %> 
-                    <br><%= " level: " + course.level %> | <%= " crn: " + course.crn %>
-                  </div>
-                </div>
-                <% end %>
-              </div> 
-            </div>
-          </div>
-        </div>
-        <br />
-      <% end %>
-    <% end %>
-    </div>
-  </div>
+  <% end %>
 </div>
-<% end %>
