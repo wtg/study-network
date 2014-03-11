@@ -1,0 +1,12 @@
+<div class="panel-body">
+  <% courses.each_slice(2) do |courses_slice| %>
+    <div class="row">
+      <% courses_slice.each do |course| %>
+        <div class="col-md-6">
+          <%= f.check_box :registrations, {multiple: true}, course.crn, nil %> 
+          <%= course.title %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

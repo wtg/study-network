@@ -3,6 +3,7 @@ StudyNetwork::Application.routes.draw do
 
   resources :users do
     get 'registrations/dept', to: 'registrations#dept'
+    get 'registrations/search', to: 'registrations#search_courses'
     resources :registrations
   end
 

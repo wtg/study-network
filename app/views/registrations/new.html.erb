@@ -1,13 +1,22 @@
-<div class="panel panel-default">
-  <% @departments.each_slice(2) do |depts| %>
-    <div class="row">
-      <% depts.each do |dept| %>
-        <% if not dept.nil? %>
-        <div class="col-md-6">
-          <p class="registration-link"><%= link_to dept, { controller: 'registrations', action: 'dept', dept: dept }  %></p>
-        </div>
+<div class="row">
+  <div class="panel panel-default">
+    <%= form_tag user_registrations_search_path, :method => 'get' do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Find a class ... " , :class => "form-control class-search" %>
+    <% end %>
+  </div>
+</div>
+<div class="row">
+  <div class="panel panel-default">
+    <% @departments.each_slice(2) do |depts| %>
+      <div class="row">
+        <% depts.each do |dept| %>
+          <% if not dept.nil? %>
+          <div class="col-md-6">
+            <p class="registration-link"><%= link_to dept, { controller: 'registrations', action: 'dept', dept: dept }  %></p>
+          </div>
+          <% end %>
         <% end %>
-      <% end %>
-    </div>
-  <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>

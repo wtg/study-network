@@ -2,6 +2,10 @@ class RegistrationsController < ApplicationController
 
   before_filter :basic_controller_privileges
 
+  def search_courses
+    @courses = Course.search(params[:search])
+  end
+
   def index
     @registrations = Registration.where(user_id: params[:user_id])
   end
