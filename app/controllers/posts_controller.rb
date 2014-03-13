@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
 
+  before_filter :post_edit_privileges, only: [:edit, :update, :destroy]
   before_filter :basic_controller_privileges
 
   def show

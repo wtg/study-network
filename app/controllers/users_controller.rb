@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   before_filter :authorize_admins_only, only: [:new, :create, :index]
+  before_filter :user_edit_privileges, only: [:edit, :update, :destroy]
   before_filter :basic_controller_privileges
 
   def index

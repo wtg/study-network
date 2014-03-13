@@ -1,6 +1,6 @@
 class RegistrationsController < ApplicationController
 
-  before_filter :basic_controller_privileges
+  before_filter :registrations_privileges
 
   def search_courses
     @courses = Course.search(params[:search])
