@@ -1,7 +1,7 @@
 class CoursesController < ApplicationController
 
   before_filter :authorize_admins_only, except: [:search_courses, :show, :connections, :messages]
-  before_filter :basic_controller_privileges
+  before_filter :basic_controller_priviledges
 
   def index
     @courses = Course.find(:all)

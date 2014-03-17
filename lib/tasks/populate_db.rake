@@ -69,9 +69,7 @@ namespace :db do
           course_level = course_sec[1]
           course_sec = course_sec[2]
           # Create our new course based on above results
-          Course.create(title: cl[1], crn: course_crn, 
-            abrev_name: course_abrev, level: course_level, 
-            section: course_sec)
+          Course.create(title: cl[1], crn: course_crn, abrev_name: course_abrev)
           # Show Progress Counter for Rake Task
           print " "*20 + "\r"
           print ((@progress_counter.to_f/@num_classes.to_f)*100.0).to_s + "%"

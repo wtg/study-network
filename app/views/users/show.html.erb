@@ -40,7 +40,7 @@
         <ul class="unstyled nav">
         <% @classes.each do |aclass| %>
           <li class="course-link">
-            <%= link_to aclass.course.title + " - " + Course.find(aclass.course_id).abrev_name + " " + aclass.course.level, aclass.course %>
+            <%= link_to aclass.course.title + " - " + Course.find(aclass.course_id).abrev_name, aclass.course %>
           </li>
         <% end %>
         </ul>
@@ -78,7 +78,7 @@
         <ul class="unstyled nav">
         <% @classes.each do |aclass| %>
           <li class="course-link">
-            <%= link_to aclass.course.title + " - " +  Course.find(aclass.course_id).abrev_name + " " + aclass.course.level, aclass.course %>
+            <%= link_to aclass.course.title + " - " +  Course.find(aclass.course_id).abrev_name, aclass.course %>
           </li>
         <% end %>
       </ul>

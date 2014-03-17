@@ -1,3 +1,5 @@
+<%= link_to "<< Back to Search", new_user_registration_path(user_id: params[:user_id]), :class => "btn btn-xs" %>
+<br /><br />
 <%= form_for :new_course_registrations, url: user_registrations_path do |f| %>
 <div class="container">
   <div class="panel panel-default">

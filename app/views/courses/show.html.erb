@@ -3,9 +3,7 @@
     <div class="col-sm-14">
       <div class="panel panel-default">
         <div class="default-margin">
-          <h1 class="panel-title"><%= @course.abrev_name + " - " + @course.title %></h1>
-          <h5><%= "Level: " + @course.level %> | 
-              <%= "CRN: " + @course.crn %></h5>
+          <h1><%= @course.abrev_name + " - " + @course.title.downcase.capitalize %></h1>
         </div>
       </div>
     </div>

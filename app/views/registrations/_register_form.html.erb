@@ -3,7 +3,7 @@
     <div class="row">
       <% courses_slice.each do |course| %>
         <div class="col-md-6">
-          <%= f.check_box :registrations, {multiple: true}, course.crn, nil %> 
+          <%= f.check_box :registrations, {multiple: true}, course.title, nil %> 
           <%= course.title %>
         </div>
       <% end %>

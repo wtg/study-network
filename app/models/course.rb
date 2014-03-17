@@ -1,6 +1,6 @@
 class Course < ActiveRecord::Base
 
-  validates :title, :crn, :abrev_name, :level, presence: true
+  validates :title, :crn, :abrev_name, presence: true
   validates :crn, :title, uniqueness: true
 
   has_many :registrations, :dependent => :delete_all

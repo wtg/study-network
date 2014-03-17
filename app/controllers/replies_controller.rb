@@ -1,6 +1,6 @@
 class RepliesController < ApplicationController
 
-  before_filter :basic_controller_privileges
+  before_filter :basic_controller_priviledges
 
   def new
     @post = Post.find(params[:post_id])

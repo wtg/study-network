@@ -10,8 +10,7 @@
       <% @registrations.each do |reg| %>
         <% course = Course.find_by_id(reg.course_id) %>
         <div class="pull-right"><%= link_to "- Remove", edit_user_registration_path(user_id: params[:user_id], id: reg.id), data: { confirm: 'Are you sure?'}, :class => "btn btn-xs" %></div>
-        <%= course.abrev_name + " - " + course.title %><br />
-        <%= "Level: " + course.level %> | <%= "CRN: " + course.crn %><br /><hr />
+        <%= course.abrev_name + " - " + course.title %><br /><hr />
       <% end %>
     </div>
   </div>

@@ -1,6 +1,6 @@
 class RegistrationsController < ApplicationController
 
-  before_filter :registrations_privileges
+  before_filter :registrations_priviledges
 
   def search_courses
     @courses = Course.search(params[:search])
@@ -20,8 +20,8 @@ class RegistrationsController < ApplicationController
     @user = User.find(params[:user_id])
     if params[:new_course_registrations] != nil
       registrations = params[:new_course_registrations][:registrations]
-      registrations.each do |acrn| 
-        Registration.create(course_id: Course.find_by_crn(acrn).id, 
+      registrations.each do |aTitle| 
+        Registration.create(course_id: Course.find_by_title(aTitle).id, 
                             user_id: params[:user_id].to_i)
       end
       flash[:notice] = "Registration successful." 
