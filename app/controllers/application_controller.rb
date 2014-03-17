@@ -27,21 +27,21 @@ class ApplicationController < ActionController::Base
     user = User.find_by_username(session[:cas_user])
   end
 
-  def user_edit_priviledges
+  def user_edit_privileges
     user = User.find_by_username(session[:cas_user])
     if user.id != params[:id].to_i
       redirect_to "/"
     end
   end
 
-  def registrations_priviledges
+  def registrations_privileges
     user = User.find_by_username(session[:cas_user])
     if user.id != params[:user_id].to_i
       redirect_to "/"
     end
   end
 
-  def post_edit_priviledges
+  def post_edit_privileges
     user = User.find_by_username(session[:cas_user])
     post = Post.find(params[:id])
     if post.user_id != user.id
@@ -49,7 +49,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def basic_controller_priviledges
+  def basic_controller_privileges
     if session[:cas_user] == nil
       redirect_to "/"
     end

@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
 
-  before_filter :basic_controller_priviledges
+  before_filter :basic_controller_privileges
 
   def show
     @course = Course.find(params[:id])

@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
-  before_filter :post_edit_priviledges, only: [:edit, :update, :destroy]
-  before_filter :basic_controller_priviledges
+  before_filter :post_edit_privileges, only: [:edit, :update, :destroy]
+  before_filter :basic_controller_privileges
 
   def show
     @post = Post.find(params[:post_id])

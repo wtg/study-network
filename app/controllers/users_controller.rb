@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
-  before_filter :user_edit_priviledges, only: [:edit, :update, :destroy]
-  before_filter :basic_controller_priviledges 
+  before_filter :user_edit_privileges, only: [:edit, :update, :destroy]
+  before_filter :basic_controller_privileges 
 
   def show
     if User.exists? id: params[:id]
