@@ -1,17 +1,17 @@
 StudyNetwork::Application.routes.draw do
   root 'pages#home'
 
-  resources :users do
+  resources :users, only: [:show, :edit, :update, :destroy] do
     get 'registrations/dept', to: 'registrations#dept'
     get 'registrations/search', to: 'registrations#search_courses'
-    resources :registrations
+    resources :registrations, only: [:index, :new, :create, :edit]
   end
 
-  resources :courses do
+  resources :courses, only: [:show] do
     get 'connections'
     get 'messages'
-    resources :posts do
-      resources :replies, except: [:index, :show] 
+    resources :posts, except: [:index] do
+      resources :replies, only: [:new, :create]
     end
   end
 

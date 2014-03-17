@@ -20,11 +20,5 @@ class CoursesController < ApplicationController
     posts = Post.course_posts(params[:course_id])
     @posts = Kaminari.paginate_array(posts).page(params[:page]).per(10)
   end
-
-  #def create
-    #@course = Course.new(course_params)
-    #@course.save
-    #redirect_to @course
-  #end
   
 end
