@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
   validates :username, :real_name, :email, presence: true
   validates :username, :real_name, :email, uniqueness: { case_sensitive: false }
-  validates :inactive, :is_admin, inclusion: { in: [true, false] }
+  validates :inactive, inclusion: { in: [true, false] }
 
   scope :active, where(inactive: false)
   scope :course_registrations, 

@@ -1,21 +1,13 @@
 class UsersController < ApplicationController
 
-  before_filter :authorize_admins_only, only: [:new, :create, :index]
   before_filter :user_edit_priviledges, only: [:edit, :update, :destroy]
-  before_filter :basic_controller_priviledges
+  before_filter :basic_controller_priviledges 
 
-  def index
-    @users = User.all
-  end
-
-  def new
-  end
-
-  def create
-    @user = User.new(user_params)
-    @user.save
-    redirect_to @user
-  end
+  #def create
+    #@user = User.new(user_params)
+    #@user.save
+    #redirect_to @user
+  #end
 
   def show
     if User.exists? id: params[:id]
