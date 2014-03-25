@@ -21,9 +21,9 @@
 </div>
 <br /><br />
 <% @replies.each do |reply| %>
-  <%= render partial: "replies/reply_tile", locals: { reply: reply } %>
+  <%= render partial: "replies/reply_tile", locals: { reply: reply, course_id: params[:course_id], post_id: @post.id } %>
 <% end %>
 
 <% if user.id == get_signedin_id %>
-  <% link_to 'edit', edit_course_post_reply_path(post_id: @post.id) %>
+  <% link_to 'edit', '#' %>
 <% end %>

@@ -2,6 +2,12 @@
 <div class="jumbotron" style="margin-left: 2em">
   <div class="pull-right">
     <p>
+      <% if reply.user_id.to_i == get_signedin_id %>
+        <%= link_to 'delete' , course_post_reply_path(course_id: course_id, post_id: post_id, id: reply.id), 
+                            method: :delete, data: { confirm: "Are you sure you would like to delete this reply?" }, :class => "btn btn-xs" %>
+        |
+      <% end %>
+
       <% if not user.real_name.empty? %>
         <%= link_to user.real_name, user_path(user) %>
       <% else %>

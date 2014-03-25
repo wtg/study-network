@@ -11,7 +11,7 @@ StudyNetwork::Application.routes.draw do
     get 'connections'
     get 'messages'
     resources :posts, except: [:index] do
-      resources :replies, only: [:new, :create]
+      resources :replies, only: [:new, :create, :destroy]
     end
   end
 

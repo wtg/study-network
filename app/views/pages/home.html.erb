@@ -13,7 +13,9 @@
           <% else %>
             <div class="col-md-12">
               <h3> You're signed in as <%= get_signedin_name %> </h3>
+              <%= link_to "Sign Out", sign_out_path, :class => "btn btn-primary" %>
               <!-- Activity Feed -->
+              <!--
                 <hr />
                 <h3 class="panel-title"> Posts in Your Network </h3>
                 <br />
@@ -41,6 +43,7 @@
 
                   </div>
                 </div>
+                -->
               </div>
             </div>
           <% end %>

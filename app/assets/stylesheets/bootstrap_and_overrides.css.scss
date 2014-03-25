@@ -5,7 +5,7 @@ body {
 
 @media (max-width: 412px) {
     body {
-        padding-top: 130px;
+        padding-top: 180px;
     }
 }
 
@@ -68,4 +68,8 @@ $colHighlight   : #31311a;
             background-color: $bgHighlight; }}
 }
 
-
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('../vendor/assets/fonts/glyphicons-halflings-regular.eot');
+  src: url('../vendor/assets/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('/assets/glyphicons-halflings-regular.woff') format('woff'), url('../vendor/assets/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../vendor/assets/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}

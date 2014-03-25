@@ -1,5 +1,6 @@
 class RepliesController < ApplicationController
 
+  before_filter :reply_edit_privileges
   before_filter :basic_controller_privileges
 
   def new
@@ -17,6 +18,12 @@ class RepliesController < ApplicationController
     else
       redirect_to new_course_post_reply_path(@post)
     end
+  end
+
+  def destroy
+    @reply = Reply.find(params[:id])
+    @reply.destroy
+    redirect_to course_post_path(course_id: params[:course_id], post_id: params[:post_id])
   end
 
   private 

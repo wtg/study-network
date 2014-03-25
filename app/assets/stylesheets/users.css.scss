@@ -35,9 +35,15 @@
 
 .panel-danger {
   .panel-heading {
-    background-color:#6B9A98;
-    color: white;
+    color: black;
     a {
+      color: black;
+      &:hover {
+        color: red;
+        text-decoration: none;
+      }
+    }
+    .badge-link {
       color: white;
     }
   }

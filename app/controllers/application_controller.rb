@@ -29,23 +29,39 @@ class ApplicationController < ActionController::Base
 
   def user_edit_privileges
     user = User.find_by_username(session[:cas_user])
-    if user.id != params[:id].to_i
-      redirect_to "/"
+    if user != nil
+      if user.id != params[:id].to_i
+        redirect_to "/"
+      end
     end
   end
 
   def registrations_privileges
     user = User.find_by_username(session[:cas_user])
-    if user.id != params[:user_id].to_i
-      redirect_to "/"
+    if user != nil
+      if user.id != params[:user_id].to_i
+        redirect_to "/"
+      end
     end
   end
 
   def post_edit_privileges
     user = User.find_by_username(session[:cas_user])
     post = Post.find(params[:id])
-    if post.user_id != user.id
-      redirect_to "/"
+    if user != nil and post != nil
+      if post.user_id != user.id
+        redirect_to "/"
+      end
+    end
+  end
+
+  def reply_edit_privileges
+    user = User.find_by_username(session[:cas_user])
+    post = Post.find(params[:post_id])
+    if user != nil and post != nil
+      if post.user_id != user.id
+        redirect_to "/"
+      end
     end
   end
 
