@@ -1,0 +1,9 @@
+<!-- Single user tile -->
+<div class="media">
+  <a class="pull-left" href="#">
+    <%= image_tag avatar_url(user), :class => 'media-object', width: '64px', height: '64px' %> 
+  </a>
+  <div class="media-body">
+    <h4 class="media-heading"><%= link_to user.real_name, user_path(user) %></h4>
+  </div>
+</div>

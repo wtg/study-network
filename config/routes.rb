@@ -18,4 +18,6 @@ StudyNetwork::Application.routes.draw do
   get '/sign_in', to: 'sessions#new'
   get '/sign_out', to: 'sessions#destroy'
 
+  get '/search', to: 'pages#search'
+
 end

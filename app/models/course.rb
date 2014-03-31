@@ -10,7 +10,11 @@ class Course < ActiveRecord::Base
 
   def self.search(search)
     if search
-      find(:all, conditions: ['title LIKE ?', "%#{search}%"])
+      courses = Array.new()
+      c1 = find(:all, conditions: ['title LIKE ?', "%#{search}%"])
+      c2 = find(:all, conditions: ['abrev_name LIKE ?', "%#{search}%"])
+      courses = c1 + c2
+      courses.uniq
     else
       find(:all)
     end

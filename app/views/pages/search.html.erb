@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2> <%= @users.length + @courses.length %> Results for: <%= params[:search] %></h2>
+    </div>
+
+    <div class="panel-body">
+      <div class="panel-group" id="searchAccordion">
+
+        <!-- Course search results -->
+        <% if @courses.length > 0 %>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#searchAccordion" href="#collapseClasses">
+                <span class="glyphicon glyphicon-arrow-down"></span><%= @courses.length %> Classes 
+              </a>
+            </h4>
+          </div>
+          <div id="collapseClasses" class="panel-collapse collapse">
+          <div class="panel-body">
+            <% @courses.each do |course| %>
+              <%= render partial: 'courses/course_tile', locals: {course: course} %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+
+      <br />
+
+      <!-- User search results -->
+      <% if @users.length > 0 %>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#searchAccordion" href="#collapsePeople">
+              <span class="glyphicon glyphicon-arrow-down"></span><%= @users.length %> People 
+            </a>
+          </h4>
+        </div>
+        <div id="collapsePeople" class="panel-collapse collapse">
+          <div class="panel-body">
+            <% @users.each do |user| %>
+              <%= render partial: 'users/user_tile', locals: {user: user} %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>

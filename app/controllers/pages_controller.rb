@@ -5,4 +5,9 @@ class PagesController < ApplicationController
     @posts = Post.recent_posts[0..4]
   end
 
+  def search
+    @users = User.search(params[:search])
+    @courses = Course.search(params[:search])
+  end
+
 end
