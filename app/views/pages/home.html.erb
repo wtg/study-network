@@ -2,9 +2,6 @@
   <div class="panel-body">
     <div class="container">
       <div class="row">
-        <div class="col-md-4">
-          <%= image_tag "rpi_logo.svg" %>
-        </div>
         <div class="col-md-8">
           <% if !signed_in? %>
             <h3> It's easy to connect with your classmates! </h3>
@@ -12,38 +9,13 @@
             <%= link_to "Begin", sign_in_path, :class => "btn btn-primary" %>
           <% else %>
             <div class="col-md-12">
-              <h3> You're signed in as <%= get_signedin_name %> </h3>
-              <%= link_to "Sign Out", sign_out_path, :class => "btn btn-primary" %>
-              <!-- Activity Feed -->
-              <!--
-                <hr />
-                <h3 class="panel-title"> Posts in Your Network </h3>
-                <br />
-                <div class="container">
-                  <div class="row">
-                    <% @posts.each do |rPost| %>
-                      <%= render partial: 'posts/post_tile', locals: { post: rPost, course_id: rPost.course_id, post_id: rPost.id } %>
-                    <% end %>
-                  </div>
-                </div>
-                <br />
-                <hr />
-                <h3 class="panel-title"> Recent Document Uploads </h3>
-                <br />
-                <div class="container">
-                  <div class="row">
-
-                  </div>
-                </div>
-                <hr />
-                <h3 class="panel-title"> New Connections </h3>
-                <br />
-                <div class="container">
-                  <div class="row">
-
-                  </div>
-                </div>
-                -->
+              <h3> News Feed </h3><hr />
+              <% @courses.each do |course| %>
+                <h4><%= link_to course.title, course_path(course), :class => 'unstyled-link' %></h4><br />
+                <% Course.recent_posts(course).each do |rPost| %>
+                  <%= render partial: "posts/post_tile", locals: {post: rPost, course_id: course.id, post_id: rPost.id} %>
+                <% end %>
+              <% end %>
               </div>
             </div>
           <% end %>

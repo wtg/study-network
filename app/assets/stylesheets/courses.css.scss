@@ -33,3 +33,14 @@
   margin-top: 5px;
   margin-left: 14px;
 }
+
+.course-tile-link {
+  color: black;
+  &:hover {
+    color: black;
+  }
+}
+
+.thumbnail {
+  border-style: none;
+}

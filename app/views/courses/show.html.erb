@@ -6,11 +6,16 @@
       <div class="row">
         <div class="panel panel-default">
           <div class="default-margin">
-            <h1><%= @course.abrev_name + " - " + @course.title.downcase.capitalize %></h1>
+            <h1><%= @course.abrev_name + " - " + @course.title.downcase.capitalize %>
+            </h1>
+            <hr />
           </div>
-          <br />
           <div class="panel-body">
-            <h3 class="panel-title"><%= link_to "Message Board", course_messages_path(@course) %></h3>
+            <span class="pull-left">
+              <h3 class="panel-title"><%= link_to "Extend Message Board", course_messages_path(@course) %>
+                <span class="glyphicon glyphicon-chevron-right"></span>
+              </h3>
+            </span>
             <span class="pull-right">
               <%= link_to "+ New Post", new_course_post_path(@course), class: "btn btn-primary btn-xs" %>
             </span>
@@ -30,8 +35,10 @@
     <!-- Connections -->
     <div class="col-sm-4">
       <div class="panel panel-default">
+        <div class="default-margin"> 
+          <h1><%= link_to 'Connections', course_connections_path(@course), :class => 'unstyled-link' %></h1><hr />
+        </div>
         <div class="panel-body">
-          <h3 class="panel-title"><%= link_to 'Connections', course_connections_path(@course) %></h3><hr />
             <% if @users.length > 0 %>
               <% @users.each do |user| %>
                 <% if user.id != get_signedin_id %>

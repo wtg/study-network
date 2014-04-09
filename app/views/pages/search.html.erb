@@ -1,7 +1,7 @@
 <div class="container">
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h2> <%= @users.length + @courses.length %> Results for: <%= params[:search] %></h2>
+      <h2> <%= pluralize(@users.length + @courses.length, 'Result') %> for <%= params[:search] %></h2>
     </div>
 
     <div class="panel-body">
@@ -13,7 +13,7 @@
           <div class="panel-heading">
             <h4 class="panel-title">
               <a data-toggle="collapse" data-parent="#searchAccordion" href="#collapseClasses">
-                <span class="glyphicon glyphicon-arrow-down"></span><%= @courses.length %> Classes 
+                <span class="glyphicon glyphicon-arrow-down"></span> <%= pluralize(@courses.length, 'Class') %>
               </a>
             </h4>
           </div>
@@ -35,7 +35,7 @@
         <div class="panel-heading">
           <h4 class="panel-title">
             <a data-toggle="collapse" data-parent="#searchAccordion" href="#collapsePeople">
-              <span class="glyphicon glyphicon-arrow-down"></span><%= @users.length %> People 
+              <span class="glyphicon glyphicon-arrow-down"></span> <%= pluralize(@users.length, 'Person') %>
             </a>
           </h4>
         </div>

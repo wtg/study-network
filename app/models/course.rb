@@ -8,6 +8,10 @@ class Course < ActiveRecord::Base
 
   scope :department_courses, lambda { |course_dept| where(abrev_name: course_dept) }
 
+  def self.recent_posts(course)
+    posts = Post.where(course_id: course.id)[0..2].reverse
+  end
+
   def self.search(search)
     if search
       courses = Array.new()

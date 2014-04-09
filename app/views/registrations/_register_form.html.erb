@@ -4,7 +4,7 @@
       <% courses_slice.each do |course| %>
         <div class="col-md-6">
           <%= f.check_box :registrations, {multiple: true}, course.title, nil %> 
-          <%= course.title %>
+          <%= link_to course.title, course_path(course), :class => 'course-tile-link' %>
         </div>
       <% end %>
     </div>

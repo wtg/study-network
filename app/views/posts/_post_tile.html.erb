@@ -1,21 +1,27 @@
 <div class="panel panel-danger">
   <div class="panel-heading">
-    <b><%= link_to post.title.capitalize , course_post_path(course_id: course_id, post_id: post_id, id: post_id) %> by <%= User.find(post.user_id).real_name %> </b>
+    <b>
+      <%= link_to post.title.capitalize , course_post_path(course_id: course_id, post_id: post_id, id: post_id) %> 
+      by 
+      <%= User.find(post.user_id).real_name %>
+    </b>
 
     <% replies = Reply.post_replies(post_id).length %>
     <% if replies > 0 %>
     <span class="badge">
-        <%= link_to pluralize(replies.to_i, 'Reply'), 
-                  course_post_path(course_id: course_id, post_id: post_id, id: post_id), :class => "badge-link" %> 
+      <%= link_to pluralize(replies.to_i, 'Reply'), 
+                    course_post_path(course_id: course_id, post_id: post_id, id: post_id), :class => "badge-link" %> 
     </span>
     <% end %>
 
     <% if post.user_id == get_signedin_id %>
+    <div class="pull-right">
       <%= link_to 'edit', edit_course_post_path(course_id: course_id, post_id: post_id, id: post_id), :class => "btn btn-xs" %>
       <%= link_to 'delete' , course_post_path(course_id: course_id, post_id: post_id, id: post_id), 
                             method: :delete, data: { confirm: "Are you sure you would like to delete this post?" }, :class => "btn btn-xs" %>
+    </div>
     <% end %>
-    <div class="pull-right">
+    <div class="pull-right" style="padding-right: 5px;">
       <%= post.created_at.to_date %>
     </div>
   </div>

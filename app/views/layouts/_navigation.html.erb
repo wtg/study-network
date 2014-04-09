@@ -7,12 +7,15 @@
       <ul class="nav navbar-nav">
       <% if signed_in? %>
         <li>
-          <%= link_to "Profile", user_path(get_signedin_id) %>
+          <a class="brand" href="<%= user_path(get_signedin_id) %>"> 
+            <%= image_tag avatar_url(@user), width: 23, height: 23 %>
+            <%= @user.real_name %>
+          </a> 
         </li>
         <li> 
           <%= link_to "Sign Out", sign_out_path %>
         </li>
-        <% else %>
+      <% else %>
         <li>
           <%= link_to "Sign In", sign_in_path %>
         </li>

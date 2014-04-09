@@ -1,9 +1,7 @@
 <!-- Single course tile -->
 <div class="media">
-  <a class="pull-left" href="#">
-    <%= course.abrev_name %>
-  </a>
+  <%= link_to course.abrev_name, user_registrations_dept_path(dept: course.abrev_name, user_id: get_signedin_user), :class => 'pull-left course-tile-link' %>
   <div class="media-body">
-    <h4 class="media-heading"><%= course.title %></h4>
+    <h4 class="media-heading"><%= link_to course.title, course_path(course), :class => 'course-tile-link' %></h4>
   </div>
 </div>

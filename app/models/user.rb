@@ -15,6 +15,15 @@ class User < ActiveRecord::Base
         lambda { | course_id | User.joins(:registrations).where(
         users: {inactive: false}, registrations: {course_id: course_id}).shuffle! }
 
+  def self.registered_courses(user)
+    registrations = Registration.where(user_id: user.id)
+    courses = Array.new()
+    registrations.each do |reg| 
+      courses.push(Course.find(reg.course_id))
+    end
+    return courses
+  end
+
   def self.search(search)
     if search
       users = Array.new()
